@@ -6,7 +6,13 @@ import { SharedModule } from '../lib/modules/shared.module';
 import { NavigationComponent } from './navigation/navigation.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
+  {
+    path: '',
+    component: MainComponent,
+    children: [
+      { path: 'master', loadChildren: './master/master.module#MasterModule' },
+    ]
+  },
   { path: '**', redirectTo: '' },
 ]
 
